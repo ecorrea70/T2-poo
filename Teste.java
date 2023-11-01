@@ -7,6 +7,7 @@ public class Teste {
 
         // Teste os métodos da classe Biblioteca aqui...
 
+        //C1
         System.out.println("C1: inicio");
         List<Livro> resultado = biblioteca.buscarLivrosPorTitulo("dos");
         for (Livro livro : resultado) {
@@ -14,12 +15,22 @@ public class Teste {
         }
         System.out.println("C1: fim");
 
+
+        //C2
         System.out.println("C2: inicio");
         List<Livro> resultado2 = biblioteca.buscaLivrosPorUsuario("006");
         for (Livro livro : resultado2) {
             System.out.println(livro);
         }
         System.out.println("C2: fim");
+
+        //O1
+        System.out.println("O1: inicio");
+        List<Livro> ordenacao1 = biblioteca.ordenacaoPorAno();
+        for (Livro livro : ordenacao1) {
+            System.out.println(livro);
+        }
+        System.out.println("O1: fim");
 
     }
 }

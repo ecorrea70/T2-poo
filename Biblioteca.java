@@ -86,4 +86,12 @@ public class Biblioteca {
                     .map(Emprestimo::getLivro)
                     .collect(Collectors.toList());
     }
+
+
+    // O1: Ordenar os livros por ano de publicação utilizando a interface Comparable.
+    public List<Livro> ordenacaoPorAno(){
+        return livros.stream()
+                    .sorted((livro1, livro2) -> Integer.compare(livro1.getAnoPublicacao(), livro2.getAnoPublicacao()))
+                    .collect(Collectors.toList());
+    }
 }
