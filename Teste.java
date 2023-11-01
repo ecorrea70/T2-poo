@@ -32,5 +32,12 @@ public class Teste {
         }
         System.out.println("O1: fim");
 
+        //O2
+        System.out.println("O2: inicio");
+        List<Livro> ordenacao2 = biblioteca.ordenacaoPorTitulo();
+        for (Livro livro : ordenacao2) {
+            System.out.println(livro);
+        }
+        System.out.println("O2: fim");
     }
 }

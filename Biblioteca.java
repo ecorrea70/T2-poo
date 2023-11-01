@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -87,11 +88,17 @@ public class Biblioteca {
                     .collect(Collectors.toList());
     }
 
-
     // O1: Ordenar os livros por ano de publicação utilizando a interface Comparable.
     public List<Livro> ordenacaoPorAno(){
         return livros.stream()
                     .sorted((livro1, livro2) -> Integer.compare(livro1.getAnoPublicacao(), livro2.getAnoPublicacao()))
+                    .collect(Collectors.toList());
+    }
+
+    // O2: Ordenar os livros por título utilizando a interface Comparator.
+    public List<Livro> ordenacaoPorTitulo(){
+        return livros.stream()
+                    .sorted(Comparator.comparing(Livro::getTitulo))
                     .collect(Collectors.toList());
     }
 }
