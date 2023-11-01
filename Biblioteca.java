@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
@@ -75,6 +76,14 @@ public class Biblioteca {
     public List<Livro> buscarLivrosPorTitulo(String titulo) {
         return livros.stream()
                     .filter(l -> l.getTitulo().toLowerCase().contains(titulo.toLowerCase()))
+                    .collect(Collectors.toList());
+    }
+
+    // C2: Consulta de Livros Emprestados para um Usuário Específico
+    public List<Livro> buscaLivrosPorUsuario(String matriculaUsuario){
+        return emprestimos.stream()
+                    .filter(e -> e.getUsuario().getMatricula().equals(matriculaUsuario))
+                    .map(Emprestimo::getLivro)
                     .collect(Collectors.toList());
     }
 }
