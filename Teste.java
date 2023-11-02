@@ -55,5 +55,13 @@ public class Teste {
             System.out.println(livro);
         }
         System.out.println("R1: fim");
+
+        //R2
+        System.out.println("R2: inicio");
+        List<Usuario> relatorio2 = biblioteca.relatorioUsuariosMaisEmprestimos();
+        for(Usuario usuario : relatorio2){
+            System.out.println(usuario);
+        }
+        System.out.println("R1: fim");
     }
 }

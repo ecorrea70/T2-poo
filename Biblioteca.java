@@ -121,4 +121,15 @@ public class Biblioteca {
                         .collect(Collectors.toList());
                     
     }
+
+    // R2: Relatório de Usuários que Mais Pegam Livros Emprestados:
+    public List<Usuario> relatorioUsuariosMaisEmprestimos(){
+        return emprestimos.stream()
+                      .map(Emprestimo::getUsuario)
+                      .collect(Collectors.groupingBy(usuario -> usuario, Collectors.counting()))
+                      .entrySet().stream()
+                      .sorted((usuario1, usuario2) -> usuario2.getValue().compareTo(usuario1.getValue()))
+                      .map(Map.Entry::getKey)
+                      .collect(Collectors.toList());    
+                    }
 }
