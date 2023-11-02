@@ -47,5 +47,13 @@ public class Teste {
             System.out.println(emprestimo);
         }
         System.out.println("O3: fim");
+
+        //R1
+        System.out.println("R1: inicio");
+        List<Livro> relatorio1 = biblioteca.relatorioMaisEmprestados();
+        for(Livro livro : relatorio1){
+            System.out.println(livro);
+        }
+        System.out.println("R1: fim");
     }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -107,5 +108,17 @@ public class Biblioteca {
         return emprestimos.stream()
                     .sorted((Comparator.comparing(Emprestimo::getDataDevolucao)))
                     .collect(Collectors.toList());
+    }
+
+    // R1: Relatório de Livros Mais Emprestados:
+    public List<Livro> relatorioMaisEmprestados(){
+        return emprestimos.stream()
+                        .map(Emprestimo::getLivro)
+                        .collect(Collectors.groupingBy(livro -> livro, Collectors.counting()))
+                        .entrySet().stream()
+                        .sorted((livro1, livro2) -> livro2.getValue().compareTo(livro1.getValue()))
+                        .map(Map.Entry::getKey)
+                        .collect(Collectors.toList());
+                    
     }
 }
