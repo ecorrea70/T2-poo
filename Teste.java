@@ -39,5 +39,13 @@ public class Teste {
             System.out.println(livro);
         }
         System.out.println("O2: fim");
+
+        //O3
+        System.out.println("O3: inicio");
+        List<Emprestimo> ordenacao3 = biblioteca.ordenacaoPorDevolucao();
+        for (Emprestimo emprestimo : ordenacao3) {
+            System.out.println(emprestimo);
+        }
+        System.out.println("O3: fim");
     }
 }

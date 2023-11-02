@@ -101,4 +101,11 @@ public class Biblioteca {
                     .sorted(Comparator.comparing(Livro::getTitulo))
                     .collect(Collectors.toList());
     }
+
+    // O3: Ordenar empréstimos por data de devolução (mais recente primeiro).
+    public List<Emprestimo> ordenacaoPorDevolucao(){
+        return emprestimos.stream()
+                    .sorted((Comparator.comparing(Emprestimo::getDataDevolucao)))
+                    .collect(Collectors.toList());
+    }
 }
