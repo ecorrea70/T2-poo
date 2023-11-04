@@ -62,6 +62,14 @@ public class Teste {
         for(Usuario usuario : relatorio2){
             System.out.println(usuario);
         }
-        System.out.println("R1: fim");
+        System.out.println("R2: fim");
+
+        //R3
+        System.out.println("R3: inicio");
+        List<Livro> relatorio3 = biblioteca.relatorioLivrosNuncaEmprestados();
+        for(Livro livro : relatorio3){
+            System.out.println(livro);
+        }
+        System.out.println("R3: fim");
     }
 }

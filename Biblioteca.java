@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Biblioteca {
@@ -132,4 +131,11 @@ public class Biblioteca {
                       .map(Map.Entry::getKey)
                       .collect(Collectors.toList());    
                     }
+
+    // R3: Relatórios de Livros que Nunca Foram Emprestados:
+    public List<Livro> relatorioLivrosNuncaEmprestados(){
+        return livros.stream()
+                    .filter(livro -> emprestimos.stream().noneMatch(emprestimo -> emprestimo.getLivro().equals(livro)))
+                    .collect(Collectors.toList());
+    }
 }
