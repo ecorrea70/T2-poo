@@ -71,5 +71,13 @@ public class Teste {
             System.out.println(livro);
         }
         System.out.println("R3: fim");
+
+        //R4
+        System.out.println("R4: inicio");
+        List<String> relatorio4 = biblioteca.mediaEmprestimosUsuario();
+        for(String mediaemprestimos : relatorio4){
+            System.out.println(mediaemprestimos);
+        }
+        System.out.println("R4: fim");
     }
 }

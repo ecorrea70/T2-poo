@@ -138,4 +138,20 @@ public class Biblioteca {
                     .filter(livro -> emprestimos.stream().noneMatch(emprestimo -> emprestimo.getLivro().equals(livro)))
                     .collect(Collectors.toList());
     }
+
+    // R4: Média Geral de Empréstimos por Usuário:
+    public List<String> mediaEmprestimosUsuario(){
+        Map<Usuario, Long> emprestimosPorUsuario = emprestimos.stream()
+                    .collect(Collectors.groupingBy(Emprestimo::getUsuario, Collectors.counting()));
+
+        return usuarios.stream()
+                    .map(usuario -> {
+                        long emprestimosDoUsuario = emprestimosPorUsuario.getOrDefault(usuario, 0L);
+                        double media = emprestimosDoUsuario / (double) emprestimos.size();
+                        return "Média de empréstimos do usuário "+ usuario.getNome() + ": " + media;
+        })
+                    .collect(Collectors.toList());
+    }
+
+    // R5: Relatório de Usuários com Mais de N Empréstimos:
 }
