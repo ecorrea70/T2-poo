@@ -154,4 +154,11 @@ public class Biblioteca {
     }
 
     // R5: Relatório de Usuários com Mais de N Empréstimos:
+    public List<Usuario> relatorioUsuariosNEmprestimos(int n){
+        return usuarios.stream()
+                      .filter(usuario -> emprestimos.stream()
+                            .filter(emprestimo -> emprestimo.getUsuario().equals(usuario))
+                            .count() > n)
+                      .collect(Collectors.toList());
+    }
 }
